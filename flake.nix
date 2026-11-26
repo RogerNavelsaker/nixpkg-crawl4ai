@@ -1,6 +1,21 @@
 {
   description = "Crawl4AI server image built with Nix dockerTools";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
+      "https://rogernavelsaker.cachix.org"
+      "https://nacosolutions.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "rogernavelsaker.cachix.org-1:n1DtzMNhA9Rz4Kg3xlXOi/KceULu8VrMbs9WXyMFQNQ="
+      "nacosolutions.cachix.org-1:JzCiW2CLcuLXtwOVAg3SlSK/kpqWbfSFEVenyKVUlug="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/02c087f3fe673c9e317f206a627cb6b910336dbe";
 
@@ -23,7 +38,7 @@
     };
 
     crawl4ai-src = {
-      url = "github:unclecode/crawl4ai/838869bdda93f25e6d50b3f50ae9577d9b19a586";
+      url = "github:unclecode/crawl4ai/7fc14a5a715636cebb0cb1620be55b292f3db910";
       flake = false;
     };
   };
@@ -41,8 +56,8 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       lib = nixpkgs.lib;
-      version = "0.9.5";
-      revision = "838869bdda93f25e6d50b3f50ae9577d9b19a586";
+      version = "0.9.6";
+      revision = "7fc14a5a715636cebb0cb1620be55b292f3db910";
       python = pkgs.python313;
 
       workspace = uv2nix.lib.workspace.loadWorkspace { workspaceRoot = ./.; };
@@ -136,7 +151,7 @@ os.environ["CRAWL4AI_API_TOKEN"] = secrets.token_hex(32)
 from crawl4ai.__version__ import __version__
 import server
 
-assert __version__ == "0.9.5"
+assert __version__ == "0.9.6"
 assert server.app is not None
 assert server.CHROMIUM_SANDBOX
 assert "--no-sandbox" not in server._browser_extra_args()
@@ -220,7 +235,7 @@ with log_path.open("w+") as log:
                     body = json.load(response)
                     assert response.status == 200
                     assert body["status"] == "ok"
-                    assert body["version"] == "0.9.5"
+                    assert body["version"] == "0.9.6"
                 break
             except urllib.error.URLError:
                 time.sleep(0.5)

@@ -1,0 +1,11 @@
+{
+  "kind": "git-tag",
+  "upstream": "https://github.com/unclecode/crawl4ai.git",
+  "tag_regex": "^v[0-9]+\\.[0-9]+\\.[0-9]+$",
+  "tag_prefix": "v",
+  "version_file": "pyproject.toml",
+  "version_grep": "^version = \"[0-9.]+\"",
+  "pinned_paths": ["uv.lock"],
+  "pinned_flake_regex": "crawl4ai-src|revision =",
+  "sync_script": "bash scripts/sync-from-git-tag.sh"
+}

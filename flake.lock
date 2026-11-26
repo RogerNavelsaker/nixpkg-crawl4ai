@@ -3,17 +3,17 @@
     "crawl4ai-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1791973438,
-        "narHash": "sha256-vdEL89vCCDuFuQ2DeUqiqJ5FP1Yov0WApyu401Ksxrg=",
+        "lastModified": 1795167914,
+        "narHash": "sha256-BIh8FuJglv2dD1PPOja59hDwrTY2+8uHvJKZPklnCLU=",
         "owner": "unclecode",
         "repo": "crawl4ai",
-        "rev": "838869bdda93f25e6d50b3f50ae9577d9b19a586",
+        "rev": "7fc14a5a715636cebb0cb1620be55b292f3db910",
         "type": "github"
       },
       "original": {
         "owner": "unclecode",
         "repo": "crawl4ai",
-        "rev": "838869bdda93f25e6d50b3f50ae9577d9b19a586",
+        "rev": "7fc14a5a715636cebb0cb1620be55b292f3db910",
         "type": "github"
       }
     },
