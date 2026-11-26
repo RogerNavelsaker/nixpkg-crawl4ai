@@ -2,3 +2,5 @@
 /result-*
 /.venv
 __pycache__/
+.devenv/
+.direnv/
