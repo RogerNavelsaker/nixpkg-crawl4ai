@@ -355,13 +355,14 @@ PY
       packages.${system} = {
         inherit image;
         default = image;
+        # Need unprivileged user namespaces for Chromium's sandbox; unavailable on GitHub-hosted runners.
+        browser-sandbox-check = browserCheck;
+        service-health-check = serviceHealthCheck;
       };
 
       checks.${system} = {
         inherit image;
         api-import = apiImportCheck;
-        browser-sandbox = browserCheck;
-        service-health = serviceHealthCheck;
       };
     };
 }
